@@ -95,12 +95,12 @@ public class Simulate {
 			velocity = (position_exact - prevPosition) / delta_t;					
 			
 			//Print some values we want to compare
-				//System.out.print(position_estimated); 
-				//System.out.print("\t");
-				//System.out.print(position_exact);
-				//System.out.print("\t");
-				//System.out.print(position_measured);
-				//System.out.print("\t");
+				System.out.print(position_estimated); 
+				System.out.print("\t");
+				System.out.print(position_exact);
+				System.out.print("\t");
+				System.out.print(position_measured);
+				System.out.print("\t");
 				/*
 				 * velocityPID.getOutput is integrated by dt where t is measured in
 				 * milliseconds. As a result velocity PID has units: ticks per ms
@@ -108,9 +108,9 @@ public class Simulate {
 				 * 	1000ms/sec * 60sec/min * 1 rev/6 tick = 10000 rev/min
 				 * Conversion factor is therefore rev/min = 10000 tick/ms
 				 */
-				//System.out.print(velocityPID.getOutput() * 10000); //Velocity with Kalman/Tracking filter
-				//System.out.print("\t");
-				//System.out.println(velocity);//velocity with regular change in position divided by change in time
+				System.out.print(velocityPID.getOutput() * 10000); //Velocity with Kalman/Tracking filter
+				System.out.print("\t");
+				System.out.println(velocity*10000);//velocity with regular change in position divided by change in time
 	
 			if(System.currentTimeMillis()-startTime>10000){ //let the PI controller start up
 				//MAPE calculations
@@ -129,13 +129,13 @@ public class Simulate {
 				variance_vel_estimated_error = (n*variance_vel_estimated_error + Math.pow((10000*velocity_estimated-3200)-mean_vel_estimated_error,2))/(n+1);
 				
 				
-				System.out.print(M_pos_measured*100);
-				System.out.print("\t");
-				System.out.print(M_pos_estimated*100);
-				System.out.print("\t");
-				System.out.print(M_vel_measured*100);
-				System.out.print("\t");
-				System.out.println(M_vel_estimated*100);
+				//System.out.print(M_pos_measured*100);
+				//System.out.print("\t");
+				//System.out.print(M_pos_estimated*100);
+				//System.out.print("\t");
+				//System.out.print(M_vel_measured*100);
+				//System.out.print("\t");
+				//System.out.println(M_vel_estimated*100);
 				
 				//print the standard deviations
 				//System.out.print(Math.sqrt(variance_pos_measured_error));
